@@ -1,5 +1,20 @@
 package controllers
 
+import (
+	"golang/api/entities"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
 type tweetController struct {
-	tweets []Tweet
+	tweets []entities.Tweet
+}
+
+func NewTweetController() *tweetController {
+	return &tweetController{}
+}
+
+func (t *tweetController) FindAll(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, t.tweets)
 }
