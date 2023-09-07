@@ -11,5 +11,6 @@ func CommitOrRollback(tx *sql.Tx) {
 		panic(err)
 	} else {
 		errCommit := tx.Commit()
+		PanicIfError(errCommit)
 	}
 }
